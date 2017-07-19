@@ -23,6 +23,7 @@ install:
   - travis_retry wget --quiet https://github.com/zeromq/czmq/releases/download/v3.0.2/czmq-3.0.2.tar.gz
   - tar xfz czmq-3.0.2.tar.gz
   - (cd czmq-3.0.2 && ./configure && make && sudo make install)
+  - sudo yum install tbb-devel
 
 script:
   - (cd rts/game_MC && make gen && make)
