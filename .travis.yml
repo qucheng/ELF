@@ -26,8 +26,10 @@ install:
   - tar xfz czmq-3.0.2.tar.gz
   - (cd czmq-3.0.2 && ./configure && make && sudo make install)
   - sudo apt-get install libtbb-dev
+  - cd ..
 
 script:
+  - pwd
   - (cd rts/game_MC && make gen && make)
   - (cd rts/game_CF && make gen && make)
   - (cd rts/game_TD && make gen && make)
