@@ -4,16 +4,19 @@
 
 # C++ project
 language: cpp
-
-matrix:
-  include:
-  - os: linux
-    compiler: gcc
-    env: COMPILER=g++-4.9
-    addons:
-      apt:
-        sources: ['ubuntu-toolchain-r-test']
-        packages: g++-4.9
+compiler:
+  - gcc
+  - clang
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.9
+    - g++-4.9
+    - clang
 
 install:
   # create deps dir if not existing
